@@ -37,9 +37,9 @@ const styles = StyleSheet.create({
         padding: 20,
     },
     button: {
-        width: '60%', // Largura do botão
-        backgroundColor: 'green',
-        paddingVertical: 20, // Aumenta a altura do botão
+        width: '60%', 
+        backgroundColor: '#66bb6c',
+        paddingVertical: 20, 
         borderRadius: 25,
         alignItems: 'center',
         justifyContent: 'center',

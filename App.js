@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import WelcomeScreen from './src/pages/Welcome';
 import HomeScreen from './src/pages/Home';
+import DetailsScreen from './src/pages/Details';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +22,15 @@ export default function App() {
                     options={{ 
                         title: 'Home',  
                         headerBackVisible: false, 
+                        headerTitleAlign: 'center'
+                    }} 
+                />
+                {/* Adiciona a tela de detalhes */}
+                <Stack.Screen 
+                    name="Details" 
+                    component={DetailsScreen} 
+                    options={{ 
+                        title: 'Detalhes', 
                         headerTitleAlign: 'center'
                     }} 
                 />

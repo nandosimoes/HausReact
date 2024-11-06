@@ -7,7 +7,6 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 // Ícones das páginas
 const icons = [
     { name: 'Home', icon: require('../../assets/images/home.png') },
-    { name: 'Page1', icon: require('../../assets/images/searchIcon.png') },
     { name: 'Page2', icon: require('../../assets/images/carrinho.png') },
     { name: 'Page3', icon: require('../../assets/images/user.png') },
 ];
@@ -76,6 +75,6 @@ const styles = StyleSheet.create({
         borderRadius: 25, 
     },
     activeBackground: {
-        backgroundColor: 'green',
+        backgroundColor: '#66bb6c',
     },
 });
