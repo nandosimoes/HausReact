@@ -1,0 +1,54 @@
+import React from 'react';
+import { useNavigation } from "@react-navigation/native";
+import { View, ImageBackground, TouchableOpacity, Text, StyleSheet } from 'react-native';
+
+const backgroundImage = require('../../assets/images/backgroundWelcome.png');
+
+export default function WelcomeScreen() {
+    const navigation = useNavigation();
+
+    return (
+        <ImageBackground
+            source={backgroundImage}
+            style={styles.background}
+        >
+            <View style={styles.container} />
+
+            <TouchableOpacity
+                style={styles.button}
+                onPress={() => navigation.navigate('Home')}
+            >
+                <Text style={styles.buttonText}>Começar</Text>
+            </TouchableOpacity>
+        </ImageBackground>
+    );
+}
+
+const styles = StyleSheet.create({
+    background: {
+        flex: 1,
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 20,
+    },
+    button: {
+        width: '60%', // Largura do botão
+        backgroundColor: 'green',
+        paddingVertical: 20, // Aumenta a altura do botão
+        borderRadius: 25,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom: 30,
+        marginTop: 50,
+    },
+    buttonText: {
+        fontSize: 18,
+        color: '#fff',
+        textAlign: 'center',
+    },
+});
