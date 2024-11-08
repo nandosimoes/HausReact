@@ -1,9 +1,7 @@
-// src/data/burgerData.js
-
 const burgers = [
     {
         id: 1,
-        name: 'Haus mega duplo bacon',
+        name: 'mega duplo bacon',
         description: 'Pão, carne, queijo, alface, tomate e molho especial.',
         price: 'R$ 25,00',
         image: require('../../assets/images/HausMegaDuplo.png'),
@@ -11,7 +9,7 @@ const burgers = [
     },
     {
         id: 2,
-        name: 'Haus chicken',
+        name: 'chicken',
         description: 'Pão, carne, queijo, bacon, cebola caramelizada e molho BBQ.',
         price: 'R$ 28,00',
         image: require('../../assets/images/HausChicken.png'),
@@ -19,7 +17,7 @@ const burgers = [
     },
     {
         id: 3,
-        name: 'Haus BBQ',
+        name: 'BBQ',
         description: 'Pão integral, hambúrguer de grão-de-bico, alface, tomate e molho verde.',
         price: 'R$ 30,00',
         image: require('../../assets/images/HausBBQ.png'),
@@ -27,7 +25,7 @@ const burgers = [
     },
     {
         id: 4,
-        name: 'Haus Happy',
+        name: 'Happy',
         description: 'Pão integral, hambúrguer de grão-de-bico, alface, tomate e molho verde.',
         price: 'R$ 30,00',
         image: require('../../assets/images/HausHappy.png'),
@@ -35,7 +33,7 @@ const burgers = [
     },
     {
         id: 5,
-        name: 'Haus CB',
+        name: 'CB',
         description: 'Pão integral, hambúrguer de grão-de-bico, alface, tomate e molho verde.',
         price: 'R$ 30,00',
         image: require('../../assets/images/HausCB.png'),
@@ -43,7 +41,7 @@ const burgers = [
     },
     {
         id: 6,
-        name: 'Haus salad',
+        name: 'salad',
         description: 'Pão integral, hambúrguer de grão-de-bico, alface, tomate e molho verde.',
         price: 'R$ 30,00',
         image: require('../../assets/images/HausSalad.png'),
@@ -51,7 +49,7 @@ const burgers = [
     },
     {
         id: 7,
-        name: 'Haus smash',
+        name: 'smash',
         description: 'Pão integral, hambúrguer de grão-de-bico, alface, tomate e molho verde.',
         price: 'R$ 30,00',
         image: require('../../assets/images/HausSmash.png'),
@@ -59,7 +57,7 @@ const burgers = [
     },
     {
         id: 8,
-        name: 'Haus chesse',
+        name: 'chesse',
         description: 'Pão integral, hambúrguer de grão-de-bico, alface, tomate e molho verde.',
         price: 'R$ 30,00',
         image: require('../../assets/images/HausChesse.png'),
