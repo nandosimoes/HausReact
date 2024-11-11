@@ -1,11 +1,11 @@
-// src/pages/Home.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, ImageBackground, Image, ScrollView } from 'react-native';
 import BurgerCard from '../components/burguerCard';
 import Footer from '../components/footer';
 import burgers from '../data/burguerData';
 import { TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import axios from 'axios';
 
 const backgroundImage = require('../../assets/images/backgroundHome.png');
 const filterIcons = [
@@ -18,7 +18,23 @@ const filterIcons = [
 
 export default function HomeScreen() {
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [user, setUser ] = useState(null);
   const navigation = useNavigation();
+  const route = useRoute();
+  const { userId } = route.params;
+
+  useEffect(() => {
+    const fetchUser  = async () => {
+      try {
+        const response = await axios.get(`http://10.0.2.2:3000/users/${userId}`);
+        setUser (response.data);
+      } catch (error) {
+        console.error("Erro ao buscar usuário:", error);
+      }
+    };
+
+    fetchUser ();
+  }, [userId]);
 
   const handleFilterPress = (category) => {
     setSelectedCategory(category === selectedCategory ? null : category);
@@ -92,11 +108,6 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     padding: 15,
     width: '100%',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 0.5,
-    shadowRadius: 5,
-    elevation: 8,
     marginBottom: 20,
   },
   icon: {

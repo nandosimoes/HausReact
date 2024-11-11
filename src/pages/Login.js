@@ -1,15 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, ImageBackground } from 'react-native';
-import userData from '../data/userData';
+import axios from 'axios';
 
 export default function LoginScreen({ navigation }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [users, setUsers] = useState([]);
+
+    const fetchUsers = async () => {
+        try {
+            const response = await axios.get('http://10.0.2.2:3000/users'); // Use 10.0.2.2 para Android Emulator
+            setUsers(response.data);
+        } catch (error) {
+            console.error("Erro ao buscar usuários:", error);
+        }
+    };
+
+    useEffect(() => {
+        fetchUsers();
+    }, []);
 
     const handleLogin = () => {
-        const user = userData.find(u => u.email === email && u.password === password);
+        const user = users.find(u => u.email === email && u.password === password);
         if (user) {
-            navigation.navigate('Home');
+            navigation.navigate('Home', { userId: user.id }); // Navegar para Home com userId
         } else {
             Alert.alert('Erro', 'Email ou senha incorretos.');
         }
@@ -18,7 +32,6 @@ export default function LoginScreen({ navigation }) {
     return (
         <ImageBackground source={require('../../assets/images/backgroundLogin.png')} style={styles.background}>
             <View style={styles.container}>
-
                 <TextInput 
                     placeholder="Email" 
                     style={styles.input} 
@@ -56,7 +69,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         paddingTop: '70%'
     },
-
     input: { 
         width: 320,
         padding: 8, 
@@ -79,6 +91,7 @@ const styles = StyleSheet.create({
     },
     link: { 
         color: '#fff', 
-        textAlign: 'center', marginTop: 10 
+        textAlign: 'center', 
+        marginTop: 10 
     },
 });

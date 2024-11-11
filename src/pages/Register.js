@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, Image, ImageBackground } from 'react-native';
-import userData from '../data/userData';
+import axios from 'axios';
 
 const profileImages = [
-    require('../../assets/images/profile1.png'),
-    require('../../assets/images/profile3.png'),
-    require('../../assets/images/profile4.png'),
-    require('../../assets/images/profile2.png')
+    { id: 1, source: require('../../assets/images/profile1.png') },
+    { id: 3, source: require('../../assets/images/profile3.png') },
+    { id: 4, source: require('../../assets/images/profile4.png') },
+    { id: 2, source: require('../../assets/images/profile2.png') }
 ];
 
 export default function RegisterScreen({ navigation }) {
@@ -15,22 +15,43 @@ export default function RegisterScreen({ navigation }) {
     const [password, setPassword] = useState('');
     const [selectedImage, setSelectedImage] = useState(null);
 
-    const handleRegister = () => {
-        if (name && email && password && selectedImage !== null) {
-            const newUser = { 
-                id: userData.length + 1, 
+    const checkEmailExists = async (email) => {
+        try {
+            const response = await axios.get('http://10.0.2.2:3000/users'); 
+            const users = response.data;
+            return users.some(user => user.email === email); 
+        } catch (error) {
+            console.error("Erro ao verificar e-mail:", error);
+            return false; 
+        }
+    };
+
+    const handleRegister = async () => {
+        if (name && email && password && selectedImage) {
+            const emailExists = await checkEmailExists(email);
+            if (emailExists) {
+                Alert.alert('Erro', 'Este e-mail já está cadastrado.');
+                return;
+            }
+
+            const newUser  = { 
                 name, 
                 email, 
                 password, 
                 profileImage: selectedImage 
             };
-            userData.push(newUser);
-            Alert.alert('Sucesso', 'Usuário cadastrado!');
-            setName('');
-            setEmail('');
-            setPassword('');
-            setSelectedImage(null);
-            navigation.navigate('Login');
+            try {
+                await axios.post('http://10.0.2.2:3000/users', newUser ); 
+                Alert.alert('Sucesso', 'Usuário cadastrado!');
+                setName('');
+                setEmail('');
+                setPassword('');
+                setSelectedImage(null);
+                navigation.navigate('Login');
+            } catch (error) {
+                Alert.alert('Erro', 'Não foi possível cadastrar o usuário.');
+                console.error("Erro ao cadastrar usuário:", error);
+            }
         } else {
             Alert.alert('Erro', 'Preencha todos os campos e selecione uma imagem de perfil.');
         }
@@ -64,12 +85,12 @@ export default function RegisterScreen({ navigation }) {
 
                 <View style={styles.imageContainer}>
                     {profileImages.map((img, index) => (
-                        <TouchableOpacity key={index} onPress={() => setSelectedImage(img)}>
+                        <TouchableOpacity key={index} onPress={() => setSelectedImage(`assets/images/profile${img.id}.png`)}>
                             <Image 
-                                source={img} 
+                                source={img.source} 
                                 style={[
                                     styles.profileImage, 
-                                    selectedImage === img && styles.selectedImage
+                                    selectedImage === `assets/images/profile${img.id}.png` && styles.selectedImage
                                 ]} 
                             />
                         </TouchableOpacity>
@@ -79,8 +100,8 @@ export default function RegisterScreen({ navigation }) {
                 <TouchableOpacity style={styles.button} onPress={handleRegister}>
                     <Text style={styles.buttonText}>Cadastre-se</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate('login')}>
-                    <Text style={styles.link}>ja tem conta? Logar-se</Text>
+                <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+                    <Text style={styles.link}>Já tem conta? Logar -se</Text>
                 </TouchableOpacity>
             </View>
         </ImageBackground>

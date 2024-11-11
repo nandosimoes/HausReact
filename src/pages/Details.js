@@ -1,5 +1,3 @@
-// src/pages/Details.js
-
 import React, { useState } from 'react';
 import { View, Text, ImageBackground, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import Footer from '../components/footer';
@@ -61,8 +59,8 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     card: {
-      marginTop: '18%',
-      height: '60%',
+        marginTop: '18%',
+        height: '60%',
         width: '100%',
         justifyContent: 'center',
         alignItems: 'center',
@@ -105,7 +103,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         borderWidth: 1,
-        borderRadius: 20, 
+        borderRadius: 20,
         paddingVertical: 2,
         marginTop: 0,
         borderColor: '#A6A6A6',
@@ -117,11 +115,11 @@ const styles = StyleSheet.create({
         marginHorizontal: 10,
     },
     description: {
-      marginLeft: -27,
         fontSize: 16,
         color: '#777',
         marginBottom: 20,
-        textAlign: 'left',
+        textAlign: 'left', 
+        width: '100%', 
     },
     button: {
         backgroundColor: '#66bb6c',

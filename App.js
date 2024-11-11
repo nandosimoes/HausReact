@@ -8,6 +8,7 @@ import HomeScreen from './src/pages/Home';
 import DetailsScreen from './src/pages/Details';
 import LoginScreen from './src/pages/Login';
 import RegisterScreen from './src/pages/Register';
+import UserScreen from './src/pages/User';
 
 const Stack = createNativeStackNavigator();
 
@@ -41,6 +42,7 @@ export default function App() {
                     name="Login"
                     component={LoginScreen}
                     options={{
+                        
                         title: 'Login',
                         headerTitleAlign: 'center'
                     }} 
@@ -50,6 +52,14 @@ export default function App() {
                     component={RegisterScreen} 
                     options={{ 
                         title: 'Cadastro', 
+                        headerTitleAlign: 'center'
+                    }} 
+                />
+                <Stack.Screen 
+                    name="User" 
+                    component={UserScreen} 
+                    options={{ 
+                        title: 'User', 
                         headerTitleAlign: 'center'
                     }} 
                 />

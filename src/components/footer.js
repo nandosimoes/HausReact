@@ -1,26 +1,30 @@
-// src/components/widgets/Footer.js
-
 import React from 'react';
 import { View, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 
-// Ícones das páginas
 const icons = [
     { name: 'Home', icon: require('../../assets/images/home.png') },
     { name: 'Page2', icon: require('../../assets/images/carrinho.png') },
-    { name: 'Page3', icon: require('../../assets/images/user.png') },
+    { name: 'User', icon: require('../../assets/images/user.png') }, // Certifique-se de que o nome aqui é "User "
 ];
 
 export default function Footer() {
     const navigation = useNavigation();
     const route = useRoute();
+    const userId = route.params?.userId || 1; // Pega o userId da rota ou usa 1 como padrão
 
     return (
         <View style={styles.footer}>
             {icons.map((item, index) => (
                 <TouchableOpacity
                     key={index}
-                    onPress={() => navigation.navigate(item.name)}
+                    onPress={() => {
+                        if (item.name === 'User') {
+                            navigation.navigate(item.name, { userId }); // Navega para User
+                        } else {
+                            navigation.navigate(item.name);
+                        }
+                    }}
                     style={styles.iconContainer}
                 >
                     <View
