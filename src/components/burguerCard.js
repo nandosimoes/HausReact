@@ -1,12 +1,10 @@
-// src/components/widgets/BurgerCard.js
-
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 
 export default function BurgerCard({ burger }) {
     return (
         <View style={styles.card}>
-            <Image source={burger.image} style={styles.image} />
+            <Image source={{ uri: burger.image }} style={styles.image} />
             <View style={styles.info}>
                 <Text style={styles.name}>{burger.name}</Text>
                 <Text style={styles.description}>{burger.description}</Text>
@@ -15,6 +13,7 @@ export default function BurgerCard({ burger }) {
         </View>
     );
 }
+
 const styles = StyleSheet.create({
     card: {
         flexDirection: 'row',
@@ -25,12 +24,9 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         marginVertical: 2,
         borderWidth: 1,
-        overflow: 'visible',
         borderRightWidth: 10,
         borderBottomWidth: 10
-
     },
-    
     image: {
         width: 130,
         height: 90,

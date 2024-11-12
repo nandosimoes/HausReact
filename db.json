@@ -5,7 +5,7 @@
       "name": "mega duplo bacon",
       "description": "Pão, carne, queijo, alface, tomate e molho especial.",
       "price": "R$ 25,00",
-      "image": "assets/images/HausMegaDuplo.png",
+      "image": "https://fibo.promokit.com.br/images/empresa/246e4ab0-2ac0-11ef-8820-df0e39472fc8.png",
       "category": "Lanches"
     },
     {
@@ -13,7 +13,7 @@
       "name": "chicken",
       "description": "Pão, carne, queijo, bacon, cebola caramelizada e molho BBQ.",
       "price": "R$ 28,00",
-      "image": "assets/images/HausChicken.png",
+      "image": "https://fibo.promokit.com.br/images/empresa/246e4ab0-2ac0-11ef-8820-df0e39472fc8.png",
       "category": "Lanches"
     },
     {

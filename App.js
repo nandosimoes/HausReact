@@ -9,6 +9,7 @@ import DetailsScreen from './src/pages/Details';
 import LoginScreen from './src/pages/Login';
 import RegisterScreen from './src/pages/Register';
 import UserScreen from './src/pages/User';
+import CartScreen from './src/pages/Cart';
 
 const Stack = createNativeStackNavigator();
 
@@ -60,6 +61,14 @@ export default function App() {
                     component={UserScreen} 
                     options={{ 
                         title: 'User', 
+                        headerTitleAlign: 'center'
+                    }} 
+                />
+                <Stack.Screen 
+                    name="Carrinho" 
+                    component={CartScreen} 
+                    options={{ 
+                        title: 'Carrinho', 
                         headerTitleAlign: 'center'
                     }} 
                 />

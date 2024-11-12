@@ -94,6 +94,7 @@ const styles = StyleSheet.create({
         borderRadius: 100,
         borderWidth: 4,
         borderColor: 'black',
+        backgroundColor: 'white'
     },
     userName: {
         marginTop: '18%',

@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, ImageBackground, Image, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, Image, ScrollView, TouchableOpacity } from 'react-native';
 import BurgerCard from '../components/burguerCard';
 import Footer from '../components/footer';
-import burgers from '../data/burguerData';
-import { TouchableOpacity } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import axios from 'axios';
 
@@ -18,23 +16,16 @@ const filterIcons = [
 
 export default function HomeScreen() {
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [user, setUser ] = useState(null);
+  const [burgers, setBurgers] = useState([]);
   const navigation = useNavigation();
-  const route = useRoute();
-  const { userId } = route.params;
 
   useEffect(() => {
-    const fetchUser  = async () => {
-      try {
-        const response = await axios.get(`http://10.0.2.2:3000/users/${userId}`);
-        setUser (response.data);
-      } catch (error) {
-        console.error("Erro ao buscar usuário:", error);
-      }
+    const fetchBurgers = async () => {
+        const response = await axios.get('http://10.0.2.2:3000/burgers');
+        setBurgers(response.data); 
     };
-
-    fetchUser ();
-  }, [userId]);
+    fetchBurgers();
+  }, []);
 
   const handleFilterPress = (category) => {
     setSelectedCategory(category === selectedCategory ? null : category);

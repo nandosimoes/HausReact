@@ -1,3 +1,5 @@
+// src/screens/DetailsScreen.js
+
 import React, { useState } from 'react';
 import { View, Text, ImageBackground, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import Footer from '../components/footer';
@@ -5,7 +7,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const backgroundDetails = require('../../assets/images/backgroundDetails.png');
 
-export default function DetailsScreen({ route }) {
+export default function DetailsScreen({ route, navigation }) {
     const { burger } = route.params;
     const [quantity, setQuantity] = useState(1);
 
@@ -14,11 +16,23 @@ export default function DetailsScreen({ route }) {
         if (quantity > 1) setQuantity(quantity - 1);
     };
 
+    const handleAddToCart = () => {
+        const cartItem = {
+            id: burger.id,
+            name: burger.name,
+            price: parseFloat(burger.price.replace('R$ ', '').replace(',', '.')), // Converte o preço para número
+            quantity: quantity,
+        };
+
+        // Navega para a página do carrinho e passa os itens do carrinho
+        navigation.navigate('Cart', { cartItems: [cartItem] });
+    };
+
     return (
         <ImageBackground source={backgroundDetails} style={styles.background} resizeMode="cover">
             <View style={styles.container}>
                 <View style={styles.card}>
-                    <Image source={burger.image} style={styles.image} />
+                    <Image source={{ uri: burger.image }} style={styles.image} />
                     <View style={styles.infoContainer}>
                         <View style={styles.textContainer}>
                             <Text style={styles.name}>{burger.name}</Text>
@@ -36,7 +50,7 @@ export default function DetailsScreen({ route }) {
                     </View>
                     <Text style={styles.description}>{burger.description}</Text>
                 </View>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button} onPress={handleAddToCart}>
                     <Text style={styles.buttonText}>Adicionar ao Carrinho</Text>
                 </TouchableOpacity>
             </View>
@@ -118,8 +132,8 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: '#777',
         marginBottom: 20,
-        textAlign: 'left', 
-        width: '100%', 
+        textAlign: 'left',
+        width: '100%',
     },
     button: {
         backgroundColor: '#66bb6c',

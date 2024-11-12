@@ -4,7 +4,7 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 
 const icons = [
     { name: 'Home', icon: require('../../assets/images/home.png') },
-    { name: 'Page2', icon: require('../../assets/images/carrinho.png') },
+    { name: 'Cart', icon: require('../../assets/images/carrinho.png') },
     { name: 'User', icon: require('../../assets/images/user.png') }, // Certifique-se de que o nome aqui é "User "
 ];
 
