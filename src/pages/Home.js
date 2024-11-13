@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, ImageBackground, Image, ScrollView, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, ImageBackground, Image, ScrollView, TouchableOpacity } from 'react-native';
 import BurgerCard from '../components/burguerCard';
 import Footer from '../components/footer';
-import { useNavigation, useRoute } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
+import CustomText from '../components/CustomText'; 
 
 const backgroundImage = require('../../assets/images/backgroundHome.png');
 const filterIcons = [
@@ -21,8 +22,8 @@ export default function HomeScreen() {
 
   useEffect(() => {
     const fetchBurgers = async () => {
-        const response = await axios.get('http://10.0.2.2:3000/burgers');
-        setBurgers(response.data); 
+      const response = await axios.get('http://10.0.2.2:3000/burgers');
+      setBurgers(response.data); 
     };
     fetchBurgers();
   }, []);
@@ -40,7 +41,7 @@ export default function HomeScreen() {
       <View style={styles.container}>
         <View style={styles.searchContainer}>
           <Image source={require('../../assets/images/searchIcon.png')} style={styles.icon} />
-          <Text style={styles.searchText}>O que gostaria de pedir hoje?</Text>
+          <CustomText style={styles.searchText}>O que gostaria de pedir hoje?</CustomText>
         </View>
 
         <View style={styles.filterContainer}>
@@ -59,7 +60,7 @@ export default function HomeScreen() {
         </View>
 
         {selectedCategory && (
-          <Text style={styles.filterText}>{selectedCategory}:</Text>
+          <CustomText style={styles.filterText}>{selectedCategory}:</CustomText>
         )}
 
         <ScrollView style={styles.burgersContainer} showsVerticalScrollIndicator={false}>
@@ -73,8 +74,8 @@ export default function HomeScreen() {
           ))}
         </ScrollView>
 
-        <Footer />
       </View>
+      <Footer />
     </ImageBackground>
   );
 }

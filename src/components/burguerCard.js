@@ -1,14 +1,19 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet } from 'react-native';
+import CustomText from '../components/CustomText'; 
 
 export default function BurgerCard({ burger }) {
     return (
         <View style={styles.card}>
             <Image source={{ uri: burger.image }} style={styles.image} />
             <View style={styles.info}>
-                <Text style={styles.name}>{burger.name}</Text>
-                <Text style={styles.description}>{burger.description}</Text>
-                <Text style={styles.price}>{burger.price}</Text>
+                <CustomText style={styles.name}>{burger.name}</CustomText>
+                <View style={styles.descriptionContainer}>
+                    <CustomText style={styles.description} numberOfLines={2}>
+                        {burger.description}
+                    </CustomText>
+                </View>
+                <CustomText style={styles.price}>{burger.price}</CustomText>
             </View>
         </View>
     );
@@ -25,7 +30,7 @@ const styles = StyleSheet.create({
         marginVertical: 2,
         borderWidth: 1,
         borderRightWidth: 10,
-        borderBottomWidth: 10
+        borderBottomWidth: 10,
     },
     image: {
         width: 130,
@@ -45,6 +50,9 @@ const styles = StyleSheet.create({
     description: {
         fontSize: 14,
         color: '#777',
+    },
+    descriptionContainer: {
+        maxHeight: 50,
     },
     price: {
         fontSize: 14,

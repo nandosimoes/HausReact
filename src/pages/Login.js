@@ -1,6 +1,9 @@
+// src/pages/Login.js
+
 import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, ImageBackground } from 'react-native';
+import { View, TextInput, TouchableOpacity, StyleSheet, Alert, ImageBackground } from 'react-native';
 import axios from 'axios';
+import CustomText from '../components/CustomText'; // Importar o CustomText
 
 export default function LoginScreen({ navigation }) {
     const [email, setEmail] = useState('');
@@ -47,10 +50,10 @@ export default function LoginScreen({ navigation }) {
                     secureTextEntry 
                 />
                 <TouchableOpacity style={styles.button} onPress={handleLogin}>
-                    <Text style={styles.buttonText}>Login</Text>
+                    <CustomText style={styles.buttonText}>Login</CustomText>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-                    <Text style={styles.link}>Não tem uma conta? Cadastre-se</Text>
+                    <CustomText style={styles.link}>Não tem uma conta? Cadastre-se</CustomText>
                 </TouchableOpacity>
             </View>
         </ImageBackground>

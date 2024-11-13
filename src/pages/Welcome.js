@@ -1,6 +1,9 @@
+// src/pages/Welcome.js
+
 import React from 'react';
 import { useNavigation } from "@react-navigation/native";
-import { View, ImageBackground, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { View, ImageBackground, TouchableOpacity, StyleSheet } from 'react-native';
+import CustomText from '../components/CustomText';
 
 const backgroundImage = require('../../assets/images/backgroundWelcome.png');
 
@@ -12,13 +15,15 @@ export default function WelcomeScreen() {
             source={backgroundImage}
             style={styles.background}
         >
-            <View style={styles.container} />
+            <View style={styles.container}>
+
+            </View>
 
             <TouchableOpacity
                 style={styles.button}
                 onPress={() => navigation.navigate('Login')}
             >
-                <Text style={styles.buttonText}>Começar</Text>
+                <CustomText style={styles.buttonText}>Começar</CustomText>
             </TouchableOpacity>
         </ImageBackground>
     );
@@ -50,5 +55,9 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: '#fff',
         textAlign: 'center',
+    },
+    title: {
+        fontSize: 24,
+        fontWeight: 'bold',
     },
 });

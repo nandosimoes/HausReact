@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, Image, ImageBackground } from 'react-native';
+import { View, TextInput, TouchableOpacity, StyleSheet, Alert, Image, ImageBackground } from 'react-native';
 import axios from 'axios';
+import CustomText from '../components/CustomText'; // Importar o CustomText
 
 const profileImages = [
     { id: 1, source: require('../../assets/images/profile1.png') },
+    { id: 2, source: require('../../assets/images/profile2.png') },
     { id: 3, source: require('../../assets/images/profile3.png') },
-    { id: 4, source: require('../../assets/images/profile4.png') },
-    { id: 2, source: require('../../assets/images/profile2.png') }
+    { id: 4, source: require('../../assets/images/profile4.png') }
 ];
 
 export default function RegisterScreen({ navigation }) {
@@ -34,14 +35,14 @@ export default function RegisterScreen({ navigation }) {
                 return;
             }
 
-            const newUser  = { 
+            const newUser   = { 
                 name, 
                 email, 
                 password, 
                 profileImage: selectedImage 
             };
             try {
-                await axios.post('http://10.0.2.2:3000/users', newUser ); 
+                await axios.post('http://10.0.2.2:3000/users', newUser  ); 
                 Alert.alert('Sucesso', 'Usuário cadastrado!');
                 setName('');
                 setEmail('');
@@ -98,10 +99,10 @@ export default function RegisterScreen({ navigation }) {
                 </View>
 
                 <TouchableOpacity style={styles.button} onPress={handleRegister}>
-                    <Text style={styles.buttonText}>Cadastre-se</Text>
+                    <CustomText style={styles.buttonText}>Cadastre-se</CustomText>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-                    <Text style={styles.link}>Já tem conta? Logar -se</Text>
+                    <CustomText style={styles.link}>Já tem conta? Logar -se</CustomText>
                 </TouchableOpacity>
             </View>
         </ImageBackground>
@@ -123,7 +124,7 @@ const styles = StyleSheet.create({
     inputContainer: { 
         width: '100%', 
         alignItems: 'center',
-        marginTop: '50%'
+ marginTop: '50%'
     },
     input: { 
         width: 320,
@@ -140,7 +141,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,  
     },
     profileImage: { 
-        width: 60, 
+        width:  60, 
         height: 60,
         padding: 20,
         objectFit: 'contain', 

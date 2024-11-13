@@ -2,98 +2,244 @@
   "burgers": [
     {
       "id": "1",
-      "name": "mega duplo bacon",
-      "description": "Pão, carne, queijo, alface, tomate e molho especial.",
-      "price": "R$ 25,00",
-      "image": "https://fibo.promokit.com.br/images/empresa/246e4ab0-2ac0-11ef-8820-df0e39472fc8.png",
+      "name": "Cheese Burger",
+      "description": "Pão de brioche, burguer 150g grelhado na churrasqueira, queijo cheddar e maionese.",
+      "price": "R$ 24,99",
+      "image": "https://hausburgers.meucardapio.ai/images/empresa/dee03350-2abf-11ef-a5d1-b9ed3325c9ac.png",
       "category": "Lanches"
     },
     {
       "id": "2",
       "name": "chicken",
-      "description": "Pão, carne, queijo, bacon, cebola caramelizada e molho BBQ.",
-      "price": "R$ 28,00",
-      "image": "https://fibo.promokit.com.br/images/empresa/246e4ab0-2ac0-11ef-8820-df0e39472fc8.png",
+      "description": "Pão de brioche com gergelim, burguer de frango de 130g empanado, queijo cheddar e maionese.",
+      "price": "R$ 26,99",
+      "image": "https://hausburgers.meucardapio.ai/images/empresa/fb9152e0-2abf-11ef-a00c-1ba1382d34cd.png",
       "category": "Lanches"
     },
     {
       "id": "3",
-      "name": "BBQ",
-      "description": "Pão integral, hambúrguer de grão-de-bico, alface, tomate e molho verde.",
-      "price": "R$ 30,00",
-      "image": "assets/images/HausBBQ.png",
+      "name": "Happy Burguer",
+      "description": "Pão de brioche, burguer 150g grelhado na churrasqueira, queijo cheddar, picles, molho especial e cebola branca",
+      "price": "R$ 28,99",
+      "image": "https://hausburgers.meucardapio.ai/images/empresa/0d1571e0-810a-11ef-9d48-b5ce083f0107.png",
       "category": "Lanches"
     },
     {
       "id": "4",
-      "name": "Happy",
-      "description": "Pão integral, hambúrguer de grão-de-bico, alface, tomate e molho verde.",
-      "price": "R$ 30,00",
-      "image": "assets/images/HausHappy.png",
+      "name": "Salad Burguer",
+      "description": "Pão de brioche, burguer 150g grelhado na churrasqueira, queijo cheddar, molho haus, alface americana, tomate e cebola roxa.",
+      "price": "R$ 28,99",
+      "image": "https://hausburgers.meucardapio.ai/images/empresa/d23fee60-2abf-11ef-80bc-d50dcd4ca4b6.png",
       "category": "Lanches"
     },
     {
       "id": "5",
-      "name": "CB",
-      "description": "Pão integral, hambúrguer de grão-de-bico, alface, tomate e molho verde.",
-      "price": "R$ 30,00",
-      "image": "assets/images/HausCB.png",
+      "name": "Cbhaus",
+      "description": "Pão de gergelim selado na chapa, hamburguer artesanal de frango de 130g empanado com nosso tempero especial, quentinho e crocante, 2 fatias de crocantes bacon, alface americana picada, cebola branca e nosso queridinho Molho Haus.",
+      "price": "R$ 32,99",
+      "image": "https://hausburgers.meucardapio.ai/images/empresa/eebeda60-2abf-11ef-8820-df0e39472fc8.png",
       "category": "Lanches"
     },
     {
       "id": "6",
-      "name": "salad",
-      "description": "Pão integral, hambúrguer de grão-de-bico, alface, tomate e molho verde.",
-      "price": "R$ 30,00",
-      "image": "assets/images/HausSalad.png",
+      "name": "Bbq Burguer - O Mais Pedido",
+      "description": "Pão de brioche selado na chapa, burguer de costela de 150g assado na churrasqueira sob duas fatias de queijo cheddar derretidas, 2 fatias de bacon crocantes, tiras de cebola roxa e muito molho barbecue.",
+      "price": "R$ 29,99",
+      "image": "https://hausburgers.meucardapio.ai/images/empresa/b1ea30d0-2abf-11ef-908f-89b43925adb9.png",
       "category": "Lanches"
     },
     {
       "id": "7",
-      "name": "smash",
-      "description": "Pão integral, hambúrguer de grão-de-bico, alface, tomate e molho verde.",
-      "price": "R$ 30,00",
-      "image": "assets/images/HausSmash.png",
+      "name": "Haus Smash 90g",
+      "description": "Burguer smash de 90g, duas fatias de queijo cheddar Polenghi derretidas, ketchup e mostarda no pão brioche com gergelim.",
+      "price": "R$ 19,99",
+      "image": "https://hausburgers.meucardapio.ai/images/empresa/246e4ab0-2ac0-11ef-8820-df0e39472fc8.png",
       "category": "Lanches"
     },
     {
       "id": "8",
-      "name": "chesse",
-      "description": "Pão integral, hambúrguer de grão-de-bico, alface, tomate e molho verde.",
-      "price": "R$ 30,00",
-      "image": "assets/images/HausChesse.png",
-      "category": "Lanches"
+      "name": "Combo cheese",
+      "description": "Pão de brioche, hamburguer artesanal com 150g, grelhado na churrasqueira, queijo cheddar e maionese + refri ou suco e batata (110g).",
+      "price": "R$ 38,99",
+      "image": "https://hausburgers.meucardapio.ai/images/empresa/246e4ab0-2ac0-11ef-8820-df0e39472fc8.png",
+      "category": "Combos"
     },
     {
       "id": "9",
-      "name": "Combo Família",
-      "description": "Combinação de 2 lanches com batatas e refrigerante.",
-      "price": "R$ 50,00",
-      "image": "assets/images/HausBBQ.png",
+      "name": "Combo Salad",
+      "description": "Pão de brioche, burguer 150g grelhado na churrasqueira, queijo cheddar, molho haus, alface americana, tomate e cebola roxa + refri ou suco e batata (110g).",
+      "price": "R$ 42,99",
+      "image": "https://hausburgers.meucardapio.ai/images/empresa/66c4abe0-28ed-11ef-b975-a3568a62bae1.png",
       "category": "Combos"
     },
     {
       "id": "10",
-      "name": "Batata Frita",
-      "description": "Batatas crocantes e deliciosas.",
-      "price": "R$ 15,00",
-      "image": "assets/images/HausBatataBacon.png",
-      "category": "Acompanhamentos"
+      "name": "Combo Bbq",
+      "description": "Pão de brioche, hamburguer 150g grelhado na churrasqueira, queijo cheddar, bacon, molho barbecue e cebola roxa + refri ou suco e batata (110g).",
+      "price": "R$ 43,99",
+      "image": "https://hausburgers.meucardapio.ai/images/empresa/1a1f6500-28ed-11ef-b1a4-3b077bbef4a2.png",
+      "category": "Combos"
     },
     {
       "id": "11",
-      "name": "Batata Frita",
-      "description": "Batatas crocantes e deliciosas.",
-      "price": "R$ 15,00",
-      "image": "assets/images/HausSalad.png",
-      "category": "Sobremesas"
+      "name": "Combo Chicken",
+      "description": "Pão de gergelim, burguer de frango de 130g empanado e maionese + 1 porção de batata (100g) + bebida (refri ou suco).",
+      "price": "R$ 40,99",
+      "image": "https://hausburgers.meucardapio.ai/images/empresa/cf98c2f0-28ed-11ef-8b30-cbb012b34603.png",
+      "category": "Combos"
     },
     {
       "id": "12",
-      "name": "Batata Frita",
-      "description": "Batatas crocantes e deliciosas.",
-      "price": "R$ 15,00",
-      "image": "assets/images/HausFrango.png",
+      "name": "Combo Cbhaus",
+      "description": "Pão de gergelim, burguer de frango de 130g empanado, 2 fatias de bacon, alface americana, cebola e Molho Haus + 1 porção de batata (100g) + 1 bebida (refri ou suco).",
+      "price": "R$ 46,99",
+      "image": "https://hausburgers.meucardapio.ai/images/empresa/ae8bea60-28ed-11ef-ace5-458266305390.png",
+      "category": "Combos"
+    }
+,
+    {
+      "id": "13",
+      "name": "Combo Mega Duplo Bacon",
+      "description": "Pão de brioche, 2 burguers(são 300g de carne) grelhada na churrasqueira, 4 fatias de queijo cheddar derretidos, bacon e muita maionese verde + refri ou suco e porção de batatas crocantes (110g) ",
+      "price": "R$ 53,99",
+      "image": "https://hausburgers.meucardapio.ai/images/empresa/f41e3cf0-28ec-11ef-b975-a3568a62bae1.png",
+      "category": "Combos"
+    },
+    {
+      "id": "14",
+      "name": "Batatas + Cheddar e bacon",
+      "description": "150g de crocantes batatas fritas recheadas com queijo cheddar Polenghi derretido e muito bacon tostado e picado por cima.",
+      "price": "R$ 18,99",
+      "image": "https://hausburgers.meucardapio.ai/images/empresa/4d510ee0-2ac0-11ef-b5cc-dff30f2ea0e2.png",
+      "category": "Acompanhamentos"
+    },
+    {
+      "id": "15",
+      "name": "Tiras de frango artesanais (8 uni)",
+      "description": "Porção de crocantes nuggets empanados e artesanais, fritos e quentinhos (8 unidades).",
+      "price": "R$ 16,99",
+      "image": "https://hausburgers.meucardapio.ai/images/empresa/ae8bea60-28ed-11ef-ace5-458266305390.png",
+      "category": "Acompanhamentos"
+    }
+,
+    {
+      "id": "16",
+      "name": "Batata frita",
+      "description": "Porção de 120g das queridinhas, crocantes e quentinhas batatas fritas.",
+      "price": "R$ 10,99",
+      "image": "https://hausburgers.meucardapio.ai/images/empresa/66f75f70-2ac0-11ef-85fd-cf48cb235b00.png",
+      "category": "Acompanhamentos"
+    }
+,
+    {
+      "id": "17",
+      "name": "Brownie de Doce de leite",
+      "description": "Brownie de Doce de Leite",
+      "price": "R$ 6,99",
+      "image": "https://hausburgers.meucardapio.ai/images/empresa/499a8420-c2ac-11ed-9d70-5b019e1686f0.png",
+      "category": "Sobremesas"
+    }
+,
+    {
+      "id": "18",
+      "name": "Brownie de Nutella",
+      "description": "Brownie de Nutella",
+      "price": "R$ 6,99",
+      "image": "https://hausburgers.meucardapio.ai/images/empresa/49d36e70-c2ac-11ed-81d3-b915c15c11ad.png",
+      "category": "Sobremesas"
+    }
+,
+    {
+      "id": "19",
+      "name": "Brownie de chocolate",
+      "description": "Brownie de Chocolate.",
+      "price": "R$ 6,99",
+      "image": "https://hausburgers.meucardapio.ai/images/empresa/4a153260-c2ac-11ed-a51d-3d6fcd7c54cc.png",
+      "category": "Sobremesas"
+    },
+    {
+      "id": "20",
+      "name": "Coca-Cola (Lata)",
+      "description": "Coca-Cola em lata (350ml)",
+      "price": "R$ 7,99",
+      "image": "https://hausburgers.meucardapio.ai/images/empresa/4b58fd00-c2ac-11ed-84f2-53e3a98f08be.jpg",
+      "category": "Bebidas"
+    },
+    {
+      "id": "21",
+      "name": "Fanta Laranja (Lata)",
+      "description": "Fanta Laranja em lata (350ml)",
+      "price": "R$ 7,99",
+      "image": "https://hausburgers.meucardapio.ai/images/empresa/4bccf480-c2ac-11ed-a0e0-5752bf47cd80.jpg",
+      "category": "Bebidas"
+    },
+    {
+      "id": "22",
+      "name": "Sprite (Lata)",
+      "description": "Sprite em lata (350ml)",
+      "price": "R$ 7,99",
+      "image": "https://hausburgers.meucardapio.ai/images/empresa/4c39e720-c2ac-11ed-8470-b1927ca40d4b.jpg",
+      "category": "Bebidas"
+    },
+    {
+      "id": "23",
+      "name": "Coca-Cola Zero (Lata)",
+      "description": "Coca-Cola Zero (350ml)",
+      "price": "R$ 7,99",
+      "image": "https://hausburgers.meucardapio.ai/images/empresa/4b962d10-c2ac-11ed-abff-dde0589d5c24.jpg",
+      "category": "Bebidas"
+    },
+    {
+      "id": "24",
+      "name": "Fanta Uva (Lata)",
+      "description": "Fanta Uva em lata (350ml)",
+      "price": "R$ 7,99",
+      "image": "https://hausburgers.meucardapio.ai/images/empresa/4c078c80-c2ac-11ed-9f99-2559f081f43f.jpg",
+      "category": "Bebidas"
+    }
+,
+    {
+      "id": "25",
+      "name": "Suco Del Valle Maracujá (Lata)",
+      "description": "Suco Del Valle sabor Maracujá (290ml)",
+      "price": "R$ 7,99",
+      "image": "https://hausburgers.meucardapio.ai/images/empresa/4c8a5110-c2ac-11ed-8c2e-f9a519330bf0.jpg",
+      "category": "Bebidas"
+    }
+,
+    {
+      "id": "26",
+      "name": "Suco Del Valle Uva (Lata)",
+      "description": "Suco Del Valle sabor Uva (290ml)",
+      "price": "R$ 7,99",
+      "image": "https://hausburgers.meucardapio.ai/images/empresa/4cc0a350-c2ac-11ed-9d70-5b019e1686f0.jpg",
+      "category": "Bebidas"
+    }
+,
+    {
+      "id": "27",
+      "name": "água (500ml)",
+      "description": "água Crystal sem gás.",
+      "price": "R$ 3,50",
+      "image": "https://hausburgers.meucardapio.ai/images/empresa/4cf21390-c2ac-11ed-af50-b7f310221f2a.jpg",
+      "category": "Bebidas"
+    }
+,
+    {
+      "id": "28",
+      "name": "Água c/ Gás (500ml)",
+      "description": "Água Crystal com gás.",
+      "price": "R$ 4,00",
+      "image": "https://hausburgers.meucardapio.ai/images/empresa/4d464e10-c2ac-11ed-bbe3-8971bf36bef3.jpg",
+      "category": "Bebidas"
+    }
+,
+    {
+      "id": "29",
+      "name": "H20 Limão",
+      "description": "H20 sabor limão (500ml)",
+      "price": "R$ 9,99",
+      "image": "https://hausburgers.meucardapio.ai/images/empresa/0acec1a0-d4d8-11ed-b515-c74d6374ad3b.jpeg",
       "category": "Bebidas"
     }
   ],

@@ -1,11 +1,11 @@
-// src/screens/DetailsScreen.js
-
 import React, { useState } from 'react';
-import { View, Text, ImageBackground, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, Text, ImageBackground, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import Footer from '../components/footer';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const backgroundDetails = require('../../assets/images/backgroundDetails.png');
+const CART_KEY = '@cart_items';
 
 export default function DetailsScreen({ route, navigation }) {
     const { burger } = route.params;
@@ -16,16 +16,31 @@ export default function DetailsScreen({ route, navigation }) {
         if (quantity > 1) setQuantity(quantity - 1);
     };
 
-    const handleAddToCart = () => {
+    const handleAddToCart = async () => {
         const cartItem = {
             id: burger.id,
             name: burger.name,
-            price: parseFloat(burger.price.replace('R$ ', '').replace(',', '.')), // Converte o preço para número
+            price: parseFloat(burger.price.replace('R$ ', '').replace(',', '.')),
             quantity: quantity,
+            image: burger.image,
         };
-
-        // Navega para a página do carrinho e passa os itens do carrinho
-        navigation.navigate('Cart', { cartItems: [cartItem] });
+    
+        try {
+            const existingCart = await AsyncStorage.getItem(CART_KEY);
+            const cartItems = existingCart ? JSON.parse(existingCart) : [];
+            const existingItemIndex = cartItems.findIndex(item => item.id === cartItem.id);
+    
+            if (existingItemIndex > -1) {
+                cartItems[existingItemIndex].quantity += cartItem.quantity;
+            } else {
+                cartItems.push(cartItem);
+            }
+    
+            await AsyncStorage.setItem(CART_KEY, JSON.stringify(cartItems));
+            navigation.navigate('Cart');
+        } catch (e) {
+            console.error(e);
+        }
     };
 
     return (
@@ -48,7 +63,9 @@ export default function DetailsScreen({ route, navigation }) {
                             </TouchableOpacity>
                         </View>
                     </View>
-                    <Text style={styles.description}>{burger.description}</Text>
+                    <ScrollView style={styles.descriptionContainer}>
+                        <Text style={styles.description}>{burger.description}</Text>
+                    </ScrollView>
                 </View>
                 <TouchableOpacity style={styles.button} onPress={handleAddToCart}>
                     <Text style={styles.buttonText}>Adicionar ao Carrinho</Text>
@@ -74,7 +91,7 @@ const styles = StyleSheet.create({
     },
     card: {
         marginTop: '18%',
-        height: '60%',
+        height: '65%',
         width: '100%',
         justifyContent: 'center',
         alignItems: 'center',
@@ -86,7 +103,7 @@ const styles = StyleSheet.create({
     },
     image: {
         width: '99%',
-        height: '61%',
+        height: '60%',
         borderRadius: 10,
         marginBottom: 15,
     },
@@ -128,12 +145,14 @@ const styles = StyleSheet.create({
         color: '#333',
         marginHorizontal: 10,
     },
+    descriptionContainer: {
+        width: '100%',
+        height: 20,
+    },
     description: {
         fontSize: 16,
         color: '#777',
-        marginBottom: 20,
         textAlign: 'left',
-        width: '100%',
     },
     button: {
         backgroundColor: '#66bb6c',
