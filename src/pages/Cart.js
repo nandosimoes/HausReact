@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, FlatList, TouchableOpacity, Image, ImageBackground } from 'react-native';
+import { View, StyleSheet, FlatList, TouchableOpacity, Image, ImageBackground, Text } from 'react-native';
 import Footer from '../components/footer';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import deleteIcon from '../../assets/images/remove.png'; 
-import CustomText from '../components/CustomText'; // Importar o CustomText
 
 const CART_KEY = '@cart_items';
 const DELIVERY_FEE = 2.99;
@@ -37,8 +36,9 @@ const CartScreen = ({ navigation }) => {
         <View style={styles.itemContainer}>
             <Image source={{ uri: item.image }} style={styles.itemImage} />
             <View style={styles.itemDetails}>
-                <CustomText style={styles.itemName}>{item.name}</CustomText>
-                <CustomText style={styles.itemPrice}>R$ {item.price.toFixed(2)}</CustomText>
+                <Text style={styles.itemName}>{item.name}</Text>
+                <Text style={styles.itemPrice}>R$ {item.price.toFixed(2)}</Text>
+                <Text style={styles.itemQuantity}>Quantidade: {item.quantity}</Text> 
             </View>
             <TouchableOpacity onPress={() => removeItem(item.id)} style={styles.removeButton}>
                 <Image source={deleteIcon} style={styles.icon} />
@@ -49,54 +49,35 @@ const CartScreen = ({ navigation }) => {
     return (
         <ImageBackground source={require('../../assets/images/backgroundCart.png')} style={styles.background}>
             <View style={styles.container}>
-                <CustomText style={styles.title}>Carrinho</CustomText>
+                <Text style={styles.title}>Carrinho</Text>
                 <View style={styles.cartContent}>
                     {cartItems.length === 0 ? (
-                        <CustomText style={styles.emptyMessage}>Seu carrinho está vazio.</CustomText>
+                        <Text style={styles.emptyMessage}>Seu carrinho está vazio.</Text>
                     ) : (
                         <FlatList
                             data={cartItems}
                             renderItem={renderItem}
-                            keyExtractor={item => item.id.toString()} // Certifique-se de que o id é uma string
+                            keyExtractor={item => item.id.toString()}
                         />
                     )}
                 </View>
-                {cartItems.length > 0 && (
-                    <View style={styles.summaryContainer}>
-                        <CustomText style={styles.detailsTitle}>Detalhes</CustomText>
-                        <View style={styles.summaryRow}>
-                            <CustomText style={styles.subtotal}>Subtotal:</CustomText>
-                            <CustomText style={styles.subtotalValue}>R$ {subtotal.toFixed(2)}</CustomText>
-                        </View>
-                        <View style={styles.summaryRow}>
-                            <CustomText style={styles.deliveryFee}>Taxa de entrega:</CustomText>
-                            <CustomText style={styles.deliveryFeeValue}>R$ {DELIVERY_FEE.toFixed(2)}</CustomText>
-                        </View>
-                        <View style={styles.summaryRowTotal}>
-                            <CustomText style={styles.total}>Total:</CustomText>
-                            <CustomText style={styles.totalValue}>R$ {totalPrice.toFixed(2)}</CustomText>
-                        </View>
+                <View style={styles.summaryContainer}>
+                    <Text style={styles.detailsTitle}>Detalhes</Text>
+                    <View style={styles.summaryRow}>
+                        <Text style={styles.subtotal}>Subtotal:</Text>
+                        <Text style={styles.subtotalValue}>R$ {cartItems.length > 0 ? subtotal.toFixed(2) : '0.00'}</Text>
                     </View>
-                )}
-                {cartItems.length === 0 && (
-                    <View style={styles.summaryContainer}>
-                        <CustomText style={styles.detailsTitle}>Detalhes</CustomText>
-                        <View style={styles.summaryRow}>
-                            <CustomText style={styles.subtotal}>Subtotal:</CustomText>
-                            <CustomText style={styles.subtotalValue}>R$ 0.00</CustomText>
-                        </View>
-                        <View style={styles.summaryRow}>
-                            <CustomText style={styles.deliveryFee}>Taxa de entrega:</CustomText>
-                            <CustomText style={styles.deliveryFeeValue}>R$ 0.00</CustomText>
-                        </View>
-                        <View style={styles.summaryRowTotal}>
-                            <CustomText style={styles.total}>Total:</CustomText>
-                            <CustomText style={styles.totalValue}>R$  0.00</CustomText>
-                        </View>
+                    <View style={styles.summaryRow}>
+                        <Text style={styles.deliveryFee}>Taxa de entrega:</Text>
+                        <Text style={styles.deliveryFeeValue}>R$ {cartItems.length > 0 ? DELIVERY_FEE.toFixed(2) : '0.00'}</Text>
                     </View>
-                )}
+                    <View style={styles.summaryRowTotal}>
+                        <Text style={styles.total}>Total:</Text>
+                        <Text style={styles.totalValue}>R$ {cartItems.length > 0 ? totalPrice.toFixed(2) : '0.00'}</Text>
+                    </View>
+                </View>
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
-                    <CustomText style={styles.buttonText}>Finalizar Pedido</CustomText>
+                    <Text style={styles.buttonText}>Finalizar Pedido</Text>
                 </TouchableOpacity>
             </View>
             <Footer />
@@ -133,7 +114,7 @@ const styles = StyleSheet.create({
     itemContainer: {
         borderWidth: 1,
         flexDirection: 'row',
-        alignItems: 'flex-start',
+        alignItems: 'flex-start', 
         backgroundColor: 'white',
         borderRadius: 20,
         marginBottom: 15,
@@ -157,6 +138,11 @@ const styles = StyleSheet.create({
         marginBottom: 5,
     },
     itemPrice: {
+        fontSize: 14,
+        fontWeight: 'bold',
+        textAlign: 'left',
+    },
+    itemQuantity: {
         fontSize: 14,
         fontWeight: 'bold',
         textAlign: 'left',

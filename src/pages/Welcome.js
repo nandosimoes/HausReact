@@ -1,9 +1,6 @@
-// src/pages/Welcome.js
-
 import React from 'react';
 import { useNavigation } from "@react-navigation/native";
-import { View, ImageBackground, TouchableOpacity, StyleSheet } from 'react-native';
-import CustomText from '../components/CustomText';
+import { View, ImageBackground, TouchableOpacity, StyleSheet, Text } from 'react-native';
 
 const backgroundImage = require('../../assets/images/backgroundWelcome.png');
 
@@ -23,7 +20,7 @@ export default function WelcomeScreen() {
                 style={styles.button}
                 onPress={() => navigation.navigate('Login')}
             >
-                <CustomText style={styles.buttonText}>Começar</CustomText>
+                <Text style={styles.buttonText}>Começar</Text>
             </TouchableOpacity>
         </ImageBackground>
     );

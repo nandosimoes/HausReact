@@ -5,13 +5,13 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 const icons = [
     { name: 'Home', icon: require('../../assets/images/home.png') },
     { name: 'Cart', icon: require('../../assets/images/carrinho.png') },
-    { name: 'User', icon: require('../../assets/images/user.png') }, // Certifique-se de que o nome aqui é "User "
+    { name: 'User', icon: require('../../assets/images/user.png') }, 
 ];
 
 export default function Footer() {
     const navigation = useNavigation();
     const route = useRoute();
-    const userId = route.params?.userId || 1; // Pega o userId da rota ou usa 1 como padrão
+    const userId = route.params?.userId || 1;
 
     return (
         <View style={styles.footer}>

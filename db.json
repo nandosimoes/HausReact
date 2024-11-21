@@ -10,7 +10,7 @@
     },
     {
       "id": "2",
-      "name": "chicken",
+      "name": "Chicken",
       "description": "Pão de brioche com gergelim, burguer de frango de 130g empanado, queijo cheddar e maionese.",
       "price": "R$ 26,99",
       "image": "https://hausburgers.meucardapio.ai/images/empresa/fb9152e0-2abf-11ef-a00c-1ba1382d34cd.png",
@@ -95,8 +95,7 @@
       "price": "R$ 46,99",
       "image": "https://hausburgers.meucardapio.ai/images/empresa/ae8bea60-28ed-11ef-ace5-458266305390.png",
       "category": "Combos"
-    }
-,
+    },
     {
       "id": "13",
       "name": "Combo Mega Duplo Bacon",
@@ -120,8 +119,7 @@
       "price": "R$ 16,99",
       "image": "https://hausburgers.meucardapio.ai/images/empresa/ae8bea60-28ed-11ef-ace5-458266305390.png",
       "category": "Acompanhamentos"
-    }
-,
+    },
     {
       "id": "16",
       "name": "Batata frita",
@@ -129,8 +127,7 @@
       "price": "R$ 10,99",
       "image": "https://hausburgers.meucardapio.ai/images/empresa/66f75f70-2ac0-11ef-85fd-cf48cb235b00.png",
       "category": "Acompanhamentos"
-    }
-,
+    },
     {
       "id": "17",
       "name": "Brownie de Doce de leite",
@@ -138,8 +135,7 @@
       "price": "R$ 6,99",
       "image": "https://hausburgers.meucardapio.ai/images/empresa/499a8420-c2ac-11ed-9d70-5b019e1686f0.png",
       "category": "Sobremesas"
-    }
-,
+    },
     {
       "id": "18",
       "name": "Brownie de Nutella",
@@ -147,8 +143,7 @@
       "price": "R$ 6,99",
       "image": "https://hausburgers.meucardapio.ai/images/empresa/49d36e70-c2ac-11ed-81d3-b915c15c11ad.png",
       "category": "Sobremesas"
-    }
-,
+    },
     {
       "id": "19",
       "name": "Brownie de chocolate",
@@ -196,8 +191,7 @@
       "price": "R$ 7,99",
       "image": "https://hausburgers.meucardapio.ai/images/empresa/4c078c80-c2ac-11ed-9f99-2559f081f43f.jpg",
       "category": "Bebidas"
-    }
-,
+    },
     {
       "id": "25",
       "name": "Suco Del Valle Maracujá (Lata)",
@@ -205,8 +199,7 @@
       "price": "R$ 7,99",
       "image": "https://hausburgers.meucardapio.ai/images/empresa/4c8a5110-c2ac-11ed-8c2e-f9a519330bf0.jpg",
       "category": "Bebidas"
-    }
-,
+    },
     {
       "id": "26",
       "name": "Suco Del Valle Uva (Lata)",
@@ -214,8 +207,7 @@
       "price": "R$ 7,99",
       "image": "https://hausburgers.meucardapio.ai/images/empresa/4cc0a350-c2ac-11ed-9d70-5b019e1686f0.jpg",
       "category": "Bebidas"
-    }
-,
+    },
     {
       "id": "27",
       "name": "água (500ml)",
@@ -223,8 +215,7 @@
       "price": "R$ 3,50",
       "image": "https://hausburgers.meucardapio.ai/images/empresa/4cf21390-c2ac-11ed-af50-b7f310221f2a.jpg",
       "category": "Bebidas"
-    }
-,
+    },
     {
       "id": "28",
       "name": "Água c/ Gás (500ml)",
@@ -232,8 +223,7 @@
       "price": "R$ 4,00",
       "image": "https://hausburgers.meucardapio.ai/images/empresa/4d464e10-c2ac-11ed-bbe3-8971bf36bef3.jpg",
       "category": "Bebidas"
-    }
-,
+    },
     {
       "id": "29",
       "name": "H20 Limão",
@@ -266,18 +256,33 @@
       "profileImage": "assets/images/profile2.png"
     },
     {
-      "id": "3cf3",
-      "name": "a",
+      "name": "aa",
       "email": "a",
-      "password": "a",
-      "profileImage": "assets/images/profile1.png"
+      "profileImage": "assets/images/profile3.png",
+      "id": "3cf3",
+      "password": "aa"
     },
     {
       "id": "88e2",
       "name": "heloisa helena martinho",
       "email": "ab",
       "password": "cd",
+      "profileImage": "assets/images/profile4.png"
+    },
+    {
+      "id": "9347",
+      "name": "heloisa",
+      "email": "b",
+      "password": "b",
+      "profileImage": "assets/images/profile3.png"
+    },
+    {
+      "id": "655a",
+      "name": "c",
+      "email": "c",
+      "password": "c",
       "profileImage": "assets/images/profile2.png"
     }
-  ]
+  ],
+  "enderecos": []
 }

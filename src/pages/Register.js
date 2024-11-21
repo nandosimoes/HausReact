@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { View, TextInput, TouchableOpacity, StyleSheet, Alert, Image, ImageBackground } from 'react-native';
+import { View, TextInput, TouchableOpacity, StyleSheet, Alert, Image, ImageBackground, Text } from 'react-native';
 import axios from 'axios';
-import CustomText from '../components/CustomText'; // Importar o CustomText
 
 const profileImages = [
     { id: 1, source: require('../../assets/images/profile1.png') },
@@ -18,12 +17,12 @@ export default function RegisterScreen({ navigation }) {
 
     const checkEmailExists = async (email) => {
         try {
-            const response = await axios.get('http://10.0.2.2:3000/users'); 
+            const response = await axios.get('http://10.0.2.2:3000/users');
             const users = response.data;
-            return users.some(user => user.email === email); 
+            return users.some(user => user.email === email);
         } catch (error) {
             console.error("Erro ao verificar e-mail:", error);
-            return false; 
+            return false;
         }
     };
 
@@ -35,20 +34,32 @@ export default function RegisterScreen({ navigation }) {
                 return;
             }
 
-            const newUser   = { 
-                name, 
-                email, 
-                password, 
-                profileImage: selectedImage 
+            const newUser = {
+                name,
+                email,
+                password,
+                profileImage: selectedImage
             };
+            
             try {
-                await axios.post('http://10.0.2.2:3000/users', newUser  ); 
-                Alert.alert('Sucesso', 'Usuário cadastrado!');
-                setName('');
-                setEmail('');
-                setPassword('');
-                setSelectedImage(null);
-                navigation.navigate('Login');
+                await axios.post('http://10.0.2.2:3000/users', newUser);
+                Alert.alert(
+                    'Sucesso', 
+                    'Usuário cadastrado com sucesso!',
+                    [
+                        {
+                            text: 'OK',
+                            onPress: () => {
+                                // Limpar os campos e navegar para login
+                                setName('');
+                                setEmail('');
+                                setPassword('');
+                                setSelectedImage(null);
+                                navigation.navigate('Login');
+                            }
+                        }
+                    ]
+                );
             } catch (error) {
                 Alert.alert('Erro', 'Não foi possível cadastrar o usuário.');
                 console.error("Erro ao cadastrar usuário:", error);
@@ -99,16 +110,15 @@ export default function RegisterScreen({ navigation }) {
                 </View>
 
                 <TouchableOpacity style={styles.button} onPress={handleRegister}>
-                    <CustomText style={styles.buttonText}>Cadastre-se</CustomText>
+                    <Text style={styles.buttonText}>Cadastre-se</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-                    <CustomText style={styles.link}>Já tem conta? Logar -se</CustomText>
+                    <Text style={styles.link}>Já tem conta? Logar-se</Text>
                 </TouchableOpacity>
             </View>
         </ImageBackground>
     );
 }
-
 const styles = StyleSheet.create({
     background: {
         flex: 1,
@@ -124,7 +134,7 @@ const styles = StyleSheet.create({
     inputContainer: { 
         width: '100%', 
         alignItems: 'center',
- marginTop: '50%'
+        marginTop: '50%'
     },
     input: { 
         width: 320,
@@ -157,7 +167,7 @@ const styles = StyleSheet.create({
     },
     button: { 
         backgroundColor: '#E52028', 
-        paddingVertical: 20,
+ paddingVertical: 20,
         borderRadius: 85,
         width: 180, 
         alignItems: 'center',

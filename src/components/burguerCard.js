@@ -1,19 +1,18 @@
 import React from 'react';
-import { View, Image, StyleSheet } from 'react-native';
-import CustomText from '../components/CustomText'; 
+import { View, Image, StyleSheet, Text } from 'react-native';
 
 export default function BurgerCard({ burger }) {
     return (
         <View style={styles.card}>
             <Image source={{ uri: burger.image }} style={styles.image} />
             <View style={styles.info}>
-                <CustomText style={styles.name}>{burger.name}</CustomText>
+                <Text style={styles.name}>{burger.name}</Text>
                 <View style={styles.descriptionContainer}>
-                    <CustomText style={styles.description} numberOfLines={2}>
+                    <Text style={styles.description} numberOfLines={2}>
                         {burger.description}
-                    </CustomText>
+                    </Text>
                 </View>
-                <CustomText style={styles.price}>{burger.price}</CustomText>
+                <Text style={styles.price}>{burger.price}</Text>
             </View>
         </View>
     );

@@ -10,30 +10,14 @@ import LoginScreen from './src/pages/Login';
 import RegisterScreen from './src/pages/Register';
 import UserScreen from './src/pages/User';
 import CartScreen from './src/pages/Cart';
-import * as Font from 'expo-font';
-import AppLoading from 'expo-app-loading'; 
+import InfoScreen from './src/pages/SobreNos';
+import AttScreen from './src/pages/AtualizarCadastro';
 
 const Stack = createNativeStackNavigator();
 
-const loadFonts = async () => {
-    await Font.loadAsync({
-        'Agrandir': require('./assets/fonts/Agrandir-Regular.otf'),
-        
-    });
-};
 
 export default function App() {
-    const [fontsLoaded, setFontsLoaded] = useState(false);
 
-    if (!fontsLoaded) {
-        return (
-            <AppLoading
-                startAsync={loadFonts}
-                onFinish={() => setFontsLoaded(true)}
-                onError={console.warn}
-            />
-        );
-    }
 
     return (
         <NavigationContainer>
@@ -77,7 +61,7 @@ export default function App() {
                     }} 
                 />
                 <Stack.Screen 
-                    name="User " 
+                    name="User" 
                     component={UserScreen} 
                     options={{ 
                         title: 'User ', 
@@ -89,6 +73,22 @@ export default function App() {
                     component={CartScreen} 
                     options={{ 
                         title: 'Cart', 
+                        headerTitleAlign: 'center'
+                    }} 
+                />
+                <Stack.Screen 
+                    name="SobreNos" 
+                    component={InfoScreen} 
+                    options={{ 
+                        title: 'SobreNos', 
+                        headerTitleAlign: 'center'
+                    }} 
+                />
+                <Stack.Screen 
+                    name="AtualizarCadastro" 
+                    component={AttScreen} 
+                    options={{ 
+                        title: 'Atualizar Cadastro', 
                         headerTitleAlign: 'center'
                     }} 
                 />

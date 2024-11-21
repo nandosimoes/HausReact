@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, ImageBackground, Image, ScrollView, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, ImageBackground, Image, ScrollView, TouchableOpacity, Text } from 'react-native';
 import BurgerCard from '../components/burguerCard';
 import Footer from '../components/footer';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
-import CustomText from '../components/CustomText'; 
 
 const backgroundImage = require('../../assets/images/backgroundHome.png');
 const filterIcons = [
@@ -41,7 +40,7 @@ export default function HomeScreen() {
       <View style={styles.container}>
         <View style={styles.searchContainer}>
           <Image source={require('../../assets/images/searchIcon.png')} style={styles.icon} />
-          <CustomText style={styles.searchText}>O que gostaria de pedir hoje?</CustomText>
+          <Text style={styles.searchText}>O que gostaria de pedir hoje?</Text>
         </View>
 
         <View style={styles.filterContainer}>
@@ -60,7 +59,7 @@ export default function HomeScreen() {
         </View>
 
         {selectedCategory && (
-          <CustomText style={styles.filterText}>{selectedCategory}:</CustomText>
+          <Text style={styles.filterText}>{selectedCategory}:</Text>
         )}
 
         <ScrollView style={styles.burgersContainer} showsVerticalScrollIndicator={false}>
@@ -121,7 +120,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     borderRadius: 15,
-    paddingHorizontal: 20,
+ paddingHorizontal: 20,
     paddingVertical: 10,
     alignItems: 'center',
     justifyContent: 'center',

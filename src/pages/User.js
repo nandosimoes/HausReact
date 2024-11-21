@@ -12,25 +12,30 @@ const images = {
 
 export default function UserProfileScreen({ route, navigation }) {
     const { userId } = route.params;
-    const [user, setUser  ] = useState(null);
+    const [user, setUser] = useState(null);
 
+    // Adicionando focus listener para atualizar os dados quando a tela receber foco
     useEffect(() => {
-        const fetchUser   = async () => {
-            try {
-                const response = await axios.get(`http://10.0.2.2:3000/users/${userId}`);
-                setUser (response.data);
-            } catch (error) {
-                console.error("Erro ao buscar usuário:", error);
-            }
-        };
+        const unsubscribe = navigation.addListener('focus', () => {
+            fetchUser();
+        });
 
-        fetchUser ();
-    }, [userId]);
+        return unsubscribe;
+    }, [navigation]);
+
+    const fetchUser = async () => {
+        try {
+            const response = await axios.get(`http://10.0.2.2:3000/users/${userId}`);
+            setUser(response.data);
+        } catch (error) {
+            console.error("Erro ao buscar usuário:", error);
+        }
+    };
 
     if (!user) {
         return (
             <View style={styles.container}>
-                <Text>Usuário não encontrado</Text>
+                <Text>Carregando...</Text>
             </View>
         );
     }
@@ -46,7 +51,7 @@ export default function UserProfileScreen({ route, navigation }) {
 
                     <TouchableOpacity 
                         style={[styles.button, styles.button1]} 
-                        onPress={() => navigation.navigate('UpdateProfile')}
+                        onPress={() => navigation.navigate('AtualizarCadastro', { userId: user.id })}
                     >
                         <Text style={styles.buttonText}>Atualizar cadastro</Text>
                     </TouchableOpacity>
@@ -60,7 +65,7 @@ export default function UserProfileScreen({ route, navigation }) {
 
                     <TouchableOpacity 
                         style={[styles.button, styles.button3]} 
-                        onPress={() => navigation.navigate('Page3')}
+                        onPress={() => navigation.navigate('SobreNos')}
                     >
                         <Text style={styles.buttonText}>Sobre nós</Text>
                     </TouchableOpacity>

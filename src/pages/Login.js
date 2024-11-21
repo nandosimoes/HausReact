@@ -1,9 +1,7 @@
-// src/pages/Login.js
-
-import React, { useState, useEffect } from 'react';
-import { View, TextInput, TouchableOpacity, StyleSheet, Alert, ImageBackground } from 'react-native';
+import React, { useState, useEffect, useCallback } from 'react';
+import { View, TextInput, TouchableOpacity, StyleSheet, Alert, ImageBackground, Text } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
 import axios from 'axios';
-import CustomText from '../components/CustomText'; // Importar o CustomText
 
 export default function LoginScreen({ navigation }) {
     const [email, setEmail] = useState('');
@@ -12,21 +10,24 @@ export default function LoginScreen({ navigation }) {
 
     const fetchUsers = async () => {
         try {
-            const response = await axios.get('http://10.0.2.2:3000/users'); // Use 10.0.2.2 para Android Emulator
+            const response = await axios.get('http://10.0.2.2:3000/users');
             setUsers(response.data);
         } catch (error) {
             console.error("Erro ao buscar usuários:", error);
         }
     };
 
-    useEffect(() => {
-        fetchUsers();
-    }, []);
+    // Usar useFocusEffect para atualizar os usuários sempre que a tela receber foco
+    useFocusEffect(
+        useCallback(() => {
+            fetchUsers();
+        }, [])
+    );
 
     const handleLogin = () => {
         const user = users.find(u => u.email === email && u.password === password);
         if (user) {
-            navigation.navigate('Home', { userId: user.id }); // Navegar para Home com userId
+            navigation.navigate('Home', { userId: user.id });
         } else {
             Alert.alert('Erro', 'Email ou senha incorretos.');
         }
@@ -50,10 +51,10 @@ export default function LoginScreen({ navigation }) {
                     secureTextEntry 
                 />
                 <TouchableOpacity style={styles.button} onPress={handleLogin}>
-                    <CustomText style={styles.buttonText}>Login</CustomText>
+                    <Text style={styles.buttonText}>Login</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-                    <CustomText style={styles.link}>Não tem uma conta? Cadastre-se</CustomText>
+                    <Text style={styles.link}>Não tem uma conta? Cadastre-se</Text>
                 </TouchableOpacity>
             </View>
         </ImageBackground>
