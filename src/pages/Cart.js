@@ -76,7 +76,7 @@ const CartScreen = ({ navigation }) => {
                         <Text style={styles.totalValue}>R$ {cartItems.length > 0 ? totalPrice.toFixed(2) : '0.00'}</Text>
                     </View>
                 </View>
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Address')}>
                     <Text style={styles.buttonText}>Finalizar Pedido</Text>
                 </TouchableOpacity>
             </View>

@@ -125,9 +125,7 @@ export default function UpdateProfileScreen({ route, navigation }) {
                 <TouchableOpacity style={styles.button} onPress={handleUpdate}>
                     <Text style={styles.buttonText}>Atualizar informações de login</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.goBack()}>
-                    <Text style={styles.link}>Voltar para o perfil</Text>
-                </TouchableOpacity>
+                
             </View>
         </ImageBackground>
     );
@@ -148,7 +146,7 @@ const styles = StyleSheet.create({
     inputContainer: {
         width: '100%',
         alignItems: 'center',
-        marginTop: '10%',
+        marginTop: '8%',
         marginBottom: '25%',
     },
     inputLabel: {
@@ -168,7 +166,7 @@ const styles = StyleSheet.create({
         height: 40,
     },
     imageContainer: {
-        marginTop: '8%',
+        marginTop: '5%',
         flexDirection: 'row',
         justifyContent: 'center',
         marginBottom: 20,
@@ -200,7 +198,8 @@ const styles = StyleSheet.create({
         borderRadius: 85,
         width: 350,
         alignItems: 'center',
-        marginTop: 25,
+        marginTop: 30,
+        marginBottom: 20,
         borderRightWidth: 8,
         borderBottomWidth: 8,
     },
@@ -209,10 +208,5 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold'
     },
-    link: {
-        color: '#fff',
-        textAlign: 'center',
-        marginTop: 8,
-        fontSize: 12,
-    },
+
 });

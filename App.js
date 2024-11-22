@@ -12,6 +12,9 @@ import UserScreen from './src/pages/User';
 import CartScreen from './src/pages/Cart';
 import InfoScreen from './src/pages/SobreNos';
 import AttScreen from './src/pages/AtualizarCadastro';
+import ReviewScreen from './src/pages/Reviewcart';
+import FinishScreen from './src/pages/Finish';
+import AddressScreen from './src/pages/Address';
 
 const Stack = createNativeStackNavigator();
 
@@ -49,6 +52,7 @@ export default function App() {
                     component={LoginScreen}
                     options={{
                         title: 'Login',
+                        headerBackVisible: false,
                         headerTitleAlign: 'center'
                     }} 
                 />
@@ -57,6 +61,7 @@ export default function App() {
                     component={RegisterScreen} 
                     options={{ 
                         title: 'Cadastro', 
+                        headerBackVisible: false,
                         headerTitleAlign: 'center'
                     }} 
                 />
@@ -64,7 +69,9 @@ export default function App() {
                     name="User" 
                     component={UserScreen} 
                     options={{ 
-                        title: 'User ', 
+                        title: 'User', 
+                        headerBackVisible: false,
+
                         headerTitleAlign: 'center'
                     }} 
                 />
@@ -73,6 +80,7 @@ export default function App() {
                     component={CartScreen} 
                     options={{ 
                         title: 'Cart', 
+                        headerBackVisible: false,
                         headerTitleAlign: 'center'
                     }} 
                 />
@@ -88,7 +96,32 @@ export default function App() {
                     name="AtualizarCadastro" 
                     component={AttScreen} 
                     options={{ 
+                        
                         title: 'Atualizar Cadastro', 
+                        headerTitleAlign: 'center'
+                    }} 
+                />
+                <Stack.Screen 
+                    name="ReviewCart" 
+                    component={ReviewScreen} 
+                    options={{ 
+                        title: 'Verificar Pedido', 
+                        headerTitleAlign: 'center'
+                    }} 
+                />
+                <Stack.Screen 
+                    name="Finish" 
+                    component={FinishScreen} 
+                    options={{ 
+                        title: 'Finalizar', 
+                        headerTitleAlign: 'center'
+                    }} 
+                />
+                <Stack.Screen 
+                    name="Address" 
+                    component={AddressScreen} 
+                    options={{ 
+                        title: 'Address', 
                         headerTitleAlign: 'center'
                     }} 
                 />

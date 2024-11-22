@@ -238,8 +238,8 @@
       "id": "1",
       "name": "Fernando",
       "email": "fernando@gmail.com",
-      "password": "123",
-      "profileImage": "assets/images/profile1.png"
+      "password": "a",
+      "profileImage": "assets/images/profile2.png"
     },
     {
       "id": "2",
@@ -267,7 +267,7 @@
       "name": "heloisa helena martinho",
       "email": "ab",
       "password": "cd",
-      "profileImage": "assets/images/profile4.png"
+      "profileImage": "assets/images/profile2.png"
     },
     {
       "id": "9347",
@@ -281,6 +281,13 @@
       "name": "c",
       "email": "c",
       "password": "c",
+      "profileImage": "assets/images/profile2.png"
+    },
+    {
+      "id": "442e",
+      "name": "fernando",
+      "email": "fernando",
+      "password": "a",
       "profileImage": "assets/images/profile2.png"
     }
   ],

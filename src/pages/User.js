@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 10,
         padding: 20,
-        marginTop: '40%',
+        marginTop: '36%',
     },
     profileImage: {
         width: 130,
