@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, ImageBackground, Image, TouchableOpacity } from 'react-native';
-import { Linking } from 'react-native'; // Para abrir links externos
+import { Linking } from 'react-native'; 
 
 const backgroundSobreNos = require('../../assets/images/backgroundSobreNos.png');
 const iconInsta = require('../../assets/images/iconInsta.png'); 

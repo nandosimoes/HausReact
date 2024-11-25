@@ -14,7 +14,6 @@ export default function UserProfileScreen({ route, navigation }) {
     const { userId } = route.params;
     const [user, setUser] = useState(null);
 
-    // Adicionando focus listener para atualizar os dados quando a tela receber foco
     useEffect(() => {
         const unsubscribe = navigation.addListener('focus', () => {
             fetchUser();
@@ -55,14 +54,6 @@ export default function UserProfileScreen({ route, navigation }) {
                     >
                         <Text style={styles.buttonText}>Atualizar cadastro</Text>
                     </TouchableOpacity>
-
-                    <TouchableOpacity 
-                        style={[styles.button, styles.button2]} 
-                        onPress={() => navigation.navigate('Page2')}
-                    >
-                        <Text style={styles.buttonText}>Adicionar endereço</Text>
-                    </TouchableOpacity>
-
                     <TouchableOpacity 
                         style={[styles.button, styles.button3]} 
                         onPress={() => navigation.navigate('SobreNos')}
@@ -118,13 +109,12 @@ const styles = StyleSheet.create({
         borderBottomWidth: 8,
     },
     button1: {
-        backgroundColor: '#66bb6c', 
-    },
-    button2: {
         backgroundColor: '#e52028', 
     },
+    button2: {
+    },
     button3: {
-        backgroundColor: '#f5b419',
+        backgroundColor: '#66bb6c', 
     },
     buttonText: {
         color: '#fff',

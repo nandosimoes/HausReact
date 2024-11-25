@@ -91,7 +91,6 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-end',
         padding: 20,
-        marginBottom: '5%',
     },
     inputContainer: {
         borderRadius: 10,
@@ -112,7 +111,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#e52028',
         paddingVertical: 15,
         borderRadius: 50,
-        marginTop: 10,
+        marginTop: 5,
         alignItems: 'center',
         borderRightWidth: 8,
         borderBottomWidth: 8,

@@ -50,7 +50,6 @@ export default function RegisterScreen({ navigation }) {
                         {
                             text: 'OK',
                             onPress: () => {
-                                // Limpar os campos e navegar para login
                                 setName('');
                                 setEmail('');
                                 setPassword('');

@@ -64,26 +64,21 @@ export default function ReviewCartScreen({ navigation }) {
 
     const AddressSection = () => {
         if (!address) return null;
+        const addressInfo = `(${address.street}, ${address.number}, ${address.neighborhood} - ${address.cep})`; 
+        
         return (
             <View style={styles.addressSection}>
-                <Text style={styles.addressTitle}>Endereço de Entrega:</Text>
-                <Text style={styles.addressText}>
-                    {address.street}, {address.number}
+                <Text style={styles.paymentInfo} numberOfLines={1} ellipsizeMode="tail">
+                    O pagamento deve ser realizado na hora da entrega
                 </Text>
-                {address.complement ? (
-                    <Text style={styles.addressText}>
-                        Complemento: {address.complement}
-                    </Text>
-                ) : null}
-                {address.reference ? (
-                    <Text style={styles.addressText}>
-                        Referência: {address.reference}
-                    </Text>
-                ) : null}
+                <Text style={styles.addressText} numberOfLines={1} ellipsizeMode="tail">
+                    {addressInfo}
+                </Text>
             </View>
         );
     };
-
+    
+    
     return (
         <ImageBackground source={backgroundReviewCart} style={styles.background} resizeMode="cover">
             <View style={styles.container}>
@@ -117,7 +112,7 @@ export default function ReviewCartScreen({ navigation }) {
                 <AddressSection />
                 <TouchableOpacity
                     style={styles.button}
-                    onPress={() => navigation.navigate('Payment')}
+                    onPress={() => navigation.navigate('Finish')}
                 >
                     <Text style={styles.buttonText}>Finalizar Pedido</Text>
                 </TouchableOpacity>
@@ -128,23 +123,7 @@ export default function ReviewCartScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-    addressSection: {
-        backgroundColor: 'rgba(0, 0, 0, 0.3)',
-        borderRadius: 10,
-        padding: 15,
-        marginTop: 20,
-    },
-    addressTitle: {
-        fontSize: 16,
-        fontWeight: 'bold',
-        color: 'white',
-        marginBottom: 5,
-    },
-    addressText: {
-        fontSize: 14,
-        color: 'white',
-        marginBottom: 3,
-    },
+
     background: {
         flex: 1,
         resizeMode: 'cover',
@@ -154,7 +133,6 @@ const styles = StyleSheet.create({
         padding: 20,
         justifyContent: 'space-between',
         marginTop: '40%',
-        marginHorizontal: 20
     },
     summaryContainer: {
         maxHeight: MAX_SUMMARY_HEIGHT,
@@ -264,7 +242,7 @@ const styles = StyleSheet.create({
     },
     button: {
         backgroundColor: '#e52028',
-        paddingVertical: 15,
+        paddingVertical:20,
         borderRadius: 18,
         marginTop: 20,
         alignItems: 'center',
@@ -273,5 +251,26 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 20,
         fontWeight: 'bold',
+    },
+    addressSection: {
+        borderRadius: 10,
+        padding: 15,
+        top: '24%'
+    },
+    addressText: {
+        fontSize: 13, 
+        color: 'white',
+        textAlign: 'center',
+        flexShrink: 1,
+        width: '100%',
+        fontWeight: 'bold',
+    },
+    
+    paymentInfo: {
+        maxWidth: 600,
+        fontSize: 14,
+        fontWeight: 'bold',
+        color: 'white',
+        textAlign: 'center',
     },
 });

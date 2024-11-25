@@ -54,10 +54,9 @@ export default function UpdateProfileScreen({ route, navigation }) {
                         {
                             text: 'OK',
                             onPress: () => {
-                                // Navega de volta para a tela de usuário após atualização bem-sucedida
                                 navigation.navigate('User', { 
                                     userId: userId,
-                                    timestamp: new Date().getTime() // Força atualização
+                                    timestamp: new Date().getTime() 
                                 });
                             }
                         }
@@ -146,8 +145,8 @@ const styles = StyleSheet.create({
     inputContainer: {
         width: '100%',
         alignItems: 'center',
-        marginTop: '8%',
         marginBottom: '25%',
+        marginTop: '15%'
     },
     inputLabel: {
         width: 320,
@@ -166,7 +165,6 @@ const styles = StyleSheet.create({
         height: 40,
     },
     imageContainer: {
-        marginTop: '5%',
         flexDirection: 'row',
         justifyContent: 'center',
         marginBottom: 20,

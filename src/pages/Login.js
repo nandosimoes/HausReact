@@ -17,7 +17,6 @@ export default function LoginScreen({ navigation }) {
         }
     };
 
-    // Usar useFocusEffect para atualizar os usuários sempre que a tela receber foco
     useFocusEffect(
         useCallback(() => {
             fetchUsers();

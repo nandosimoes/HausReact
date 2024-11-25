@@ -20,7 +20,7 @@ export default function Footer() {
                     key={index}
                     onPress={() => {
                         if (item.name === 'User') {
-                            navigation.navigate(item.name, { userId }); // Navega para User
+                            navigation.navigate(item.name, { userId }); 
                         } else {
                             navigation.navigate(item.name);
                         }
