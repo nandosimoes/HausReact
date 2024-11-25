@@ -8,10 +8,10 @@ import axios from 'axios';
 const backgroundImage = require('../../assets/images/backgroundHome.png');
 const filterIcons = [
   { name: 'Lanches', icon: require('../../assets/images/icon1.png') },
-  { name: 'Combos', icon: require('../../assets/images/icon2.png') },
+  { name: 'Combos', icon: require('../../assets/images/icon4.png') },
   { name: 'Acompanhamentos', icon: require('../../assets/images/icon3.png') },
-  { name: 'Bebidas', icon: require('../../assets/images/icon4.png') },
-  { name: 'Sobremesas', icon: require('../../assets/images/icon5.png') },
+  { name: 'Bebidas', icon: require('../../assets/images/icon5.png') },
+  { name: 'Sobremesas', icon: require('../../assets/images/icon2.png') },
 ];
 
 export default function HomeScreen() {
