@@ -239,7 +239,7 @@
       "name": "Fernando",
       "email": "fernando@gmail.com",
       "password": "a",
-      "profileImage": "assets/images/profile2.png"
+      "profileImage": "assets/images/profile4.png"
     },
     {
       "id": "2",
@@ -288,6 +288,13 @@
       "name": "fernando",
       "email": "fernando",
       "password": "a",
+      "profileImage": "assets/images/profile2.png"
+    },
+    {
+      "id": "7b3b",
+      "name": "jkjk",
+      "email": "jkjkj",
+      "password": "kjkj",
       "profileImage": "assets/images/profile2.png"
     }
   ],

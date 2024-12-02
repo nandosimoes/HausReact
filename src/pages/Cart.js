@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, FlatList, TouchableOpacity, Image, ImageBackground, Text } from 'react-native';
+import { View, StyleSheet, FlatList, TouchableOpacity, Image, ImageBackground, Text, Alert } from 'react-native';
 import Footer from '../components/footer';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import deleteIcon from '../../assets/images/remove.png'; 
+import deleteIcon from '../../assets/images/remove.png';
 
 const CART_KEY = '@cart_items';
 const DELIVERY_FEE = 2.99;
@@ -27,6 +27,17 @@ const CartScreen = ({ navigation }) => {
         const updatedCart = cartItems.filter(item => item.id !== id);
         await AsyncStorage.setItem(CART_KEY, JSON.stringify(updatedCart));
         setCartItems(updatedCart);
+    };
+
+    const handleCheckout = () => {
+        if (cartItems.length === 0) {
+            Alert.alert(
+                'Carrinho vazio',
+                'Adicione itens ao carrinho antes de finalizar o pedido.'
+            );
+        } else {
+            navigation.navigate('Address');
+        }
     };
 
     const subtotal = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
@@ -76,7 +87,7 @@ const CartScreen = ({ navigation }) => {
                         <Text style={styles.totalValue}>R$ {cartItems.length > 0 ? totalPrice.toFixed(2) : '0.00'}</Text>
                     </View>
                 </View>
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Address')}>
+                <TouchableOpacity style={styles.button} onPress={handleCheckout}>
                     <Text style={styles.buttonText}>Finalizar Pedido</Text>
                 </TouchableOpacity>
             </View>
